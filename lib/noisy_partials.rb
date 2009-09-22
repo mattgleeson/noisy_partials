@@ -1,8 +1,9 @@
 module ActionView
   module Partials
     def render_partial_with_explanation(*args) 
-      start_explanation = "\n<!-- START PARTIAL #{args[0]} -->\n"
-      end_explanation = "\n<!-- END PARTIAL #{args[0]} -->\n"
+      partial_path = args[0][:partial]
+      start_explanation = "\n<!-- START PARTIAL #{partial_path} -->\n"
+      end_explanation = "\n<!-- END PARTIAL #{partial_path} -->\n"
       start_explanation + render_partial_without_explanation(*args).to_s + end_explanation
     end
 
